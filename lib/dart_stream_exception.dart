@@ -10,13 +10,11 @@ export 'src/dart_stream_exception_base.dart';
 // TODO: Export any libraries intended for clients of this package.
 
 Future<List<int>> streamExceptionHandling(Stream<int> input) async {
-  StreamController controller = StreamController();
+  StreamController controller = StreamController<int>();
   List<int> newList = [];
   input.listen(
     (event) {
-      if (event.isOdd) {
-        controller.add(event);
-      }
+      controller.add(event);
     },
     onError: (error) {
       print(error);
